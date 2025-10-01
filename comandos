@@ -1,0 +1,17 @@
+docker --version
+
+cd DBconfiguration/
+docker compose up -d
+
+docker ps
+
+docker exec -it ContDBpractMod3 psql -U Admin -d credenciales 
+
+SELECT * FROM usuarios;
+SELECT * FROM credenciales;
+
+python --version
+
+pip install psycopg2-Binary
+
+
