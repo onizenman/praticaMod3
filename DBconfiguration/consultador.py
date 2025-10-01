@@ -57,7 +57,7 @@ def obtener_datos_usuario(username, password):
     except Exception as e:
         print("Error al consultar la base de datos:", e)
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     print("Inicio de sesión en la base de datos")
     # Solicitar credenciales al usuario
     user = input("Ingrese su usuario: ")

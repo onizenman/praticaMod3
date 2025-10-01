@@ -14,4 +14,7 @@ python --version
 
 pip install psycopg2-Binary
 
+python consultador.py
+
+
 
