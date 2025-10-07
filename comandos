@@ -17,4 +17,6 @@ pip install psycopg2-Binary
 python consultador.py
 
 
+python acceso.py
+
 

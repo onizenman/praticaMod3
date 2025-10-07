@@ -100,7 +100,7 @@ def actualizar_correo(id_usuario, nuevo_correo):
     try:
         cursor = conn.cursor()
         #Actualización
-        cursor.execute("UPDATE usuarios SET correo = %s WHERE id_usuario = %s"),(nuevo_correo, id_usuario)
+        cursor.execute("UPDATE usuarios SET correo = %s WHERE id_usuario = %s",(nuevo_correo, id_usuario))
 
         #Ejecutar cambios
         conn.commit()
@@ -120,12 +120,12 @@ def eliminar_usuario(id_usuario):
     try:
         cursor = conn.cursor()
         #Eliminar credencial primero por la restricción de llave foranea
-        cursor.execute("DELETE FROM credenciales WHERE id_usuario = %s",(id_usuario))
+        cursor.execute("DELETE FROM credenciales WHERE id_usuario = %s",(id_usuario,))
         #Eliminar usuario
-        cursor.execute("DELETE FROM usuarios WHERE id_usuario = %s",(id_usuario))
-
+        cursor.execute("DELETE FROM usuarios WHERE id_usuario = %s",(id_usuario,))
+        #Ejecutar cambios
         conn.commit()
-        print("Usuario correctamente eliminado")
+        print("Correo actualizado correctamente")
 
     except Exception as e:
         print("Error al eliminar: ",e)
@@ -164,17 +164,15 @@ def menu():
             insertar_usuario(nombreNuevo, correo, telefono, fecha_nacimiento, usuario,contra)
         
         elif opcion == "3":
-            #error
             print("Actualizar correo")
             id_usuario = input("Comparte el id del usuario al que deseas modificar: ")
             correoNuevo = input("Comparte el correo nuevo: ")
             actualizar_correo(id_usuario, correoNuevo)
 
         elif opcion == "4":
-            #error
             print("Eliminación de Usuario")
             id_usuario = input("Comparte el id del usuario que deseas eliminar: ")
-            eliminar_usuario()
+            eliminar_usuario(id_usuario)
 
         elif opcion == "5":
             print("Programa Terminado")
